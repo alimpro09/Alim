@@ -1,16 +1,46 @@
-/* Starter CSS to edit */
-body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-}
+const catData = {
+    standard: { 
+        w: 4.5, 
+        h: 46, 
+        name: "стандартных котов", 
+        hText: "Если поставить их друг на друга, они смогут смотреть вам прямо в глаза. Главное, чтобы нижний не убежал за лазерной указкой, иначе вся конструкция рухнет.", 
+        wText: "Если все эти коты уснут на вас холодной ночью, вы больше никогда не сможете встать. Вы официально лучшая в мире лежанка." 
+    },
+    mainecoon: { 
+        w: 8, 
+        h: 100, 
+        name: "мейн-кунов", 
+        hText: "Этим гигантам даже не нужно прыгать, чтобы достать вам до макушки.", 
+        wText: "Такая масса суровой пушистости требует отдельного дивана и личного повара." 
+    },
+    kitten: { 
+        w: 0.5, 
+        h: 15, 
+        name: "котят", 
+        hText: "Для них вы — настоящая Годзилла. Пожалуйста, ступайте осторожнее.", 
+        wText: "Столько котят могут захватить небольшой район города исключительно с помощью своей милоты." 
+    }
+};
 
-h1 {
-    text-align: center;
-}
+document.getElementById('calcBtn').addEventListener('click', function() {
+    const height = parseFloat(document.getElementById('humanHeight').value);
+    const weight = parseFloat(document.getElementById('humanWeight').value);
+    const type = document.getElementById('catType').value;
 
-#output {
-    margin-top: 20px;
-    font-weight: bold;
-}
+    if (!height || !weight || height <= 0 || weight <= 0) {
+        alert("Пожалуйста, введите корректные рост и вес!");
+        return;
+    }
+
+    const cat = catData[type];
+    const catHeight = (height / cat.h).toFixed(1);
+    const catWeight = (weight / cat.w).toFixed(1);
+
+    document.getElementById('heightTitle').innerText = `Ваш рост: ${catHeight} ${cat.name}`;
+    document.getElementById('heightText').innerText = cat.hText;
+    
+    document.getElementById('weightTitle').innerText = `Ваш вес: ${catWeight} ${cat.name}`;
+    document.getElementById('weightText').innerText = cat.wText;
+
+    document.getElementById('result').style.display = 'block';
+});
