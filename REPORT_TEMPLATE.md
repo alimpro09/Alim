@@ -83,27 +83,32 @@ It shows you in cats   if (!height || !weight || height <= 0 || weight <= 0) {
         return;
     }
 
-    const cat = catData[type];
-    const catHeight = (height / cat.h).toFixed(1);
-    const catWeight = (weight / cat.w).toFixed(1);
+ if (!height || !weight || height <= 0 || weight <= 0) {
+            alert("Пожалуйста, введите корректные рост и вес!");
+            return;
+        }
 
-    let heightVerdict = "";
-    if (height < 160) {
-        heightVerdict = "Кстати, ты довольно компактный! Меньше трех с половиной котов в высоту.";
-    } else if (height >= 160 && height < 185) {
-        heightVerdict = "У тебя отличный средний рост. Примерно 3.5–4 кота — идеальный человек-дерево для лазанья.";
-    } else {
-        heightVerdict = "Ого, да ты гигант! Больше 4 котов в высоту — настоящая башня.";
-    }
+        const cat = catData[type];
+        const catHeight = (height / cat.h).toFixed(1);
+        const catWeight = (weight / cat.w).toFixed(1);
 
-    let weightVerdict = "";
-    if (weight < 60) {
-        weightVerdict = "Ты легкий! Если коты устроят на тебе кучу-малу, тебе будет тяжело дышать.";
-    } else if (weight >= 60 && weight < 90) {
-        weightVerdict = "Оптимальная масса. На тебе поместится целая кошачья семья.";
-    } else {
-        weightVerdict = "Мощная комплекция! Ты — непробиваемая крепость и отличная защита от собак.";
-    }
+        let heightVerdict = "";
+        if (height < 160) {
+            heightVerdict = "Кстати, ты довольно компактный! Меньше трех с половиной котов в высоту.";
+        } else if (height >= 160 && height < 185) {
+            heightVerdict = "У тебя отличный средний рост. Идеальное дерево для лазанья.";
+        } else {
+            heightVerdict = "Ого, да ты гигант! Настоящая башня.";
+        }
+
+        let weightVerdict = "";
+        if (weight < 60) {
+            weightVerdict = "Ты легкий! Если коты устроят на тебе кучу-малу, тебе будет тяжело дышать.";
+        } else if (weight >= 60 && weight < 90) {
+            weightVerdict = "Оптимальная масса. На тебе поместится целая кошачья семья.";
+        } else {
+            weightVerdict = "Мощная комплекция! Непробиваемая крепость и отличная защита от собак.";
+        }
 
 ---
 
