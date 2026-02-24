@@ -1,46 +1,72 @@
-const catData = {
-    standard: { 
-        w: 4.5, 
-        h: 46, 
-        name: "стандартных котов", 
-        hText: "Если поставить их друг на друга, они смогут смотреть вам прямо в глаза. Главное, чтобы нижний не убежал за лазерной указкой, иначе вся конструкция рухнет.", 
-        wText: "Если все эти коты уснут на вас холодной ночью, вы больше никогда не сможете встать. Вы официально лучшая в мире лежанка." 
-    },
-    mainecoon: { 
-        w: 8, 
-        h: 100, 
-        name: "мейн-кунов", 
-        hText: "Этим гигантам даже не нужно прыгать, чтобы достать вам до макушки.", 
-        wText: "Такая масса суровой пушистости требует отдельного дивана и личного повара." 
-    },
-    kitten: { 
-        w: 0.5, 
-        h: 15, 
-        name: "котят", 
-        hText: "Для них вы — настоящая Годзилла. Пожалуйста, ступайте осторожнее.", 
-        wText: "Столько котят могут захватить небольшой район города исключительно с помощью своей милоты." 
-    }
-};
-
-document.getElementById('calcBtn').addEventListener('click', function() {
-    const height = parseFloat(document.getElementById('humanHeight').value);
-    const weight = parseFloat(document.getElementById('humanWeight').value);
-    const type = document.getElementById('catType').value;
-
-    if (!height || !weight || height <= 0 || weight <= 0) {
-        alert("Пожалуйста, введите корректные рост и вес!");
-        return;
-    }
-
-    const cat = catData[type];
-    const catHeight = (height / cat.h).toFixed(1);
-    const catWeight = (weight / cat.w).toFixed(1);
-
-    document.getElementById('heightTitle').innerText = `Ваш рост: ${catHeight} ${cat.name}`;
-    document.getElementById('heightText').innerText = cat.hText;
-    
-    document.getElementById('weightTitle').innerText = `Ваш вес: ${catWeight} ${cat.name}`;
-    document.getElementById('weightText').innerText = cat.wText;
-
-    document.getElementById('result').style.display = 'block';
-});
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+h1 {
+    color: #333;
+    margin-top: 0;
+}
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+button:hover {
+    background-color: #e68a00;
+}
+#result {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff8e1;
+    border-radius: 8px;
+    text-align: left;
+    border-left: 5px solid #ff9800;
+}
+.res-title {
+    font-weight: bold;
+    color: #e68a00;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.res-text {
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.res-text:last-child {
+    margin-bottom: 0;
+}
