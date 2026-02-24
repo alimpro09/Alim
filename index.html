@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Personal Calculator</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КотоМетр</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Personal Calculator</h1>
-
-<form id="calculatorForm">
-    <!-- Add input fields here -->
-</form>
-
-<div id="output">
-    <!-- Results will be displayed here -->
+<div class="card">
+    <h1>КотоМетр 🐾</h1>
+    <input type="number" id="humanHeight" placeholder="Твой рост (в см)" min="1">
+    <input type="number" id="humanWeight" placeholder="Твой вес (в кг)" min="1">
+    
+    <select id="catType">
+        <option value="standard">Обычный домашний кот</option>
+        <option value="mainecoon">Здоровенный мейн-кун</option>
+        <option value="kitten">Месячный котенок</option>
+    </select>
+    
+    <button id="calcBtn">Узнать правду</button>
+    
+    <div id="result">
+        <div class="res-title" id="heightTitle"></div>
+        <div class="res-text" id="heightText"></div>
+        <div class="res-title" id="weightTitle"></div>
+        <div class="res-text" id="weightText"></div>
+    </div>
 </div>
 
 <script src="script.js"></script>
